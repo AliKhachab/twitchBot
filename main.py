@@ -1,6 +1,7 @@
 from twitchio.ext import commands  # twitch bot package. commands is for chatbots
 import os  # direct access to your operating system to get the '.env' file key value pairs
 from dotenv import load_dotenv  # allows access to the .env files
+
 file = 'outputs.txt'
 twitterLink = ""
 discordLink = ""
@@ -15,6 +16,7 @@ bot = commands.Bot(
     initial_channels=[os.environ['CHANNEL']]
 )
 
+
 @bot.event()
 async def event_ready():
     print("Bot is reading from chat as " + bot.nick)
@@ -25,17 +27,16 @@ async def twitter(ctx: commands.Context) -> None:
     await ctx.send(twitterLink)
     print(twitterLink)
 
+
 @bot.command()
 async def discord(ctx: commands.Context) -> None:
-
     await ctx.send(discordLink)
     print(discordLink)
+
 
 @bot.command()
 async def editCommand(ctx: commands.Context, commandName: str) -> None:
     return
-
-
 
 
 if __name__ == '__main__':
