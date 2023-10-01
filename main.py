@@ -10,9 +10,9 @@ load_dotenv()  # load the .env file in this project. I got exceptions when I did
 bot = commands.Bot(
     token=os.environ['TMI_TOKEN'],
     client_id=os.environ['CLIENT_ID'],
-    nick='slimestreambot',
+    nick=os.environ['NICK'],
     prefix='!',
-    initial_channels=['iamtheslime_']
+    initial_channels=[os.environ['CHANNEL']]
 )
 
 @bot.event()
