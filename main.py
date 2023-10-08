@@ -88,7 +88,7 @@ async def rmcom(ctx: commands.Context, commandName: str) -> None:
 async def event_message(ctx: commands.Context) -> None:
     if bot.nick.lower() != ctx.author.name.lower():
         if ctx.message.content.startswith(bot.get_prefix()):
-
+            pass
     else:
         return
 

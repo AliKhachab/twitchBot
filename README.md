@@ -1,6 +1,41 @@
 # twitchBot
 
-**SlimeStreamBot** 
-This code is me practicing usage of the *twitchio API* by making my own bot in chat. As of 10/1/2023, it can read some commands and print them out, specifically to find a !twitter chat message and a !discord chat message. My goal in the future is to create a bot robust enough to work like Nightbot but catered specifically to my computer so that I can do song requests without another service (song requests being that I can take a song link from chat following a command, check it if it is a valid YouTube link, and then play it directly on my Chrome browser).
+### What this is for
 
-***NOTE***: there is a .env file you need if you want to make your own Twitch chatbot (hence the os.environ['KEY'] in the constructor). 
+This is meant to be used for my own personal Twitch stream chat. Others can of course look at the code and copy it or
+install it in order to modify it and make their own Twitch chat-bot.
+
+This was also meant to be used as practice in Python, since I figured it would be useful to try and get used to what the
+language entails.
+
+### What the bot can do
+
+The bot can, as of right now, read and write basic messages to chat.
+
+I've included basic functions like .twitter, .discord, and .grindserver, with the idea being that they could link to my
+social media page, my personal Discord server, and my fighting game specific Discord server respectively. The links are
+held through key:value pairs in dictionary `dynamic_variables`, with the key being the command people in chat type in
+and the value being the link itself. 
+
+The key:value pairs are also stored in a personal `outputs.txt` file which I have
+saved in the project (not in the remote repository). The idea is that since I don't have a way to run the bot 24/7, if
+I were to use this bot I could simply store it in a .txt file that can change dynamically while the program is run
+without me needing to edit `main.py` or the code directly, instead using Twitch chat commands like `.editcom 
+.commandName [editToBeMade]`.
+
+### TBA 
+
+The add, edit, and remove command functions are currently being worked on. This is a bit of a personal tangent, but I
+have not worked with Python at this level at all nor have I worked with Python in a while, so I'm spending time trying
+to understand how everything works -- like the decorators and their influence on code (especially because it is very
+different in Java, as to my knowledge Java decorators are purely for readers), what pipenv is, etc. -- to a level where
+I won't need to constantly circle back to documentation to try understanding it.
+
+The edit, add, and remove command functionality is about halfway complete.
+
+### Future ideas for the bot
+
+I think it would be really fun if I could have a way to do song requests through the bot that link directly to either
+a YouTube playlist or Google Chrome so that I could have viewers type something like `.sr [YT link]` and it would
+directly influence the song I am listening to without needing to click links or anything. I might need to use some
+YouTube APIs or something for that, but that will come after I can edit commands.
