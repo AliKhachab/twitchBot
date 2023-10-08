@@ -42,26 +42,29 @@ async def event_ready():
 
 @bot.command()
 async def twitter(ctx: commands.Context) -> None:
-    if "twitter" in dynamic_variables:
-        await ctx.send(dynamic_variables["twitter"])
-    else:
-        await ctx.send("No Twitter link found.")
+    if ctx.message.content.toLower() == "twitter":
+        if "twitter" in dynamic_variables:
+            await ctx.send(dynamic_variables["twitter"])
+        else:
+            await ctx.send("No Twitter link found.")
 
 
 @bot.command()
 async def discord(ctx: commands.Context) -> None:
-    if "twitter" in dynamic_variables:
-        await ctx.send(dynamic_variables["discord"])
-    else:
-        await ctx.send("No Discord link found.")
+    if ctx.message.content.toLower() == "discord":
+        if "discord" in dynamic_variables:
+            await ctx.send(dynamic_variables["discord"])
+        else:
+            await ctx.send("No Discord link found.")
 
 
 @bot.command()
 async def grindserver(ctx: commands.Context) -> None:
-    if "twitter" in dynamic_variables:
-        await ctx.send(dynamic_variables["grindserver"])
-    else:
-        await ctx.send("No Grind Server link found.")
+    if ctx.message.content.toLower() == "grindserver":
+        if "twitter" in dynamic_variables:
+            await ctx.send(dynamic_variables["grindserver"])
+        else:
+            await ctx.send("No Grind Server link found.")
 
 
 @bot.command()
