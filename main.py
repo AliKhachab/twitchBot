@@ -15,22 +15,21 @@ if os.path.exists(filePath):
         if len(lines) % 2 == 0:
             for i in range(0, len(lines), 2):
                 curr_line = lines[i].strip("\n")
-                matching_value = lines[i+1].strip("\n")
+                matching_value = lines[i + 1].strip("\n")
                 dynamic_variables[curr_line] = matching_value
         else:
             print("***error: one key does not have a matching value. input temporary value***")
 
-
 print(str(dynamic_variables))
 
-
-load_dotenv()  # load the .env file in this project. I got exceptions when I didn't have this code
+load_dotenv()  # load the .env file in this project. Using .env and not something like .txt because things like the
+# token are case-sensitive and very important for privacy.
 
 bot = commands.Bot(
     token=os.environ['TMI_TOKEN'],
     client_id=os.environ['CLIENT_ID'],
     nick=os.environ['NICK'],
-    prefix='!',
+    prefix='.',
     initial_channels=[os.environ['CHANNEL']]
 )
 
@@ -68,13 +67,37 @@ async def grindserver(ctx: commands.Context) -> None:
 
 
 @bot.command()
-async def addcom(ctx: commands.Context) -> None:
-    chatToString = ' '.join(ctx)
+async def addcom(ctx: commands.Context, command_name: str, *response) -> None: # adds custom command.
+    # just learned this as well: *parameter = the rest of the stuff being added to the function.
+    print(response)
+    chatToString = ' '.join(response)
+    dynamic_variables[command_name] = chatToString
+    await ctx.send('Command ' + command_name + ' has been added with output' + chatToString + '.')
+
 
 
 @bot.command()
 async def editcom(ctx: commands.Context, commandName: str) -> None:
     return
+
+@bot.command()
+async def rmcom(ctx: commands.Context, commandName: str) -> None:
+    return
+
+@bot.event()
+async def event_message(ctx: commands.Context) -> None:
+    if bot.nick.lower() != ctx.author.name.lower():
+        if ctx.message.content.startswith(bot.get_prefix()):
+
+    else:
+        return
+
+
+@bot.event()
+async def event_shutdown() -> None:
+    with open (filePath, 'w'):
+        file.write(f"{dynamic_variables['twitter']}\n{dynamic_variables['discord']}\n{dynamic_variables['grindserver']}")
+
 
 if __name__ == '__main__':
     bot.run()
