@@ -29,7 +29,7 @@ bot = commands.Bot(
     token=os.environ['TMI_TOKEN'],
     client_id=os.environ['CLIENT_ID'],
     nick=os.environ['NICK'],
-    prefix='!',
+    prefix='?',
     initial_channels=[os.environ['CHANNEL']]
 )
 
@@ -66,14 +66,15 @@ async def grindserver(ctx: commands.Context) -> None:
             await ctx.send("No Grind Server link found.")
 
 
-# @bot.command()
-# async def addcom(ctx: commands.Context, command_name: str, *response) -> None: # adds custom command.
-#     # just learned this as well: *parameter = the rest of the stuff being added to the function.
-#     print(response)
-#     chatToString = ' '.join(response)
-#     dynamic_variables[command_name] = chatToString
-#     await ctx.send('Command ' + command_name + ' has been added with output' + chatToString + '.')
-#
+@bot.command()
+async def addcom(ctx: commands.Context, command_name: str, *response) -> None: # adds custom command.
+    # just learned this as well: *parameter = the rest of the stuff being added to the function.
+    print(response)
+    chatToString = ' '.join(response)
+    new_commands[command_name[1:]] = chatToString
+    await ctx.send('Command ' + command_name + ' has been added with output' + chatToString + '.')
+    print(new_commands)
+
 #
 #
 # @bot.command()
@@ -83,14 +84,6 @@ async def grindserver(ctx: commands.Context) -> None:
 # @bot.command()
 # async def rmcom(ctx: commands.Context, commandName: str) -> None:
 #     return
-
-# @bot.event()
-# async def event_message(ctx: commands.Context) -> None:
-#     if bot.nick.lower() != ctx.author.name.lower():
-#         if ctx.message.content.startswith(bot.get_prefix()):
-#             pass
-#     else:
-#         return
 
 
 
