@@ -93,6 +93,7 @@ async def grindserver(ctx: commands.Context) -> None:
 #         return
 
 @bot.command()
+<<<<<<< HEAD
 async def editcom(ctx: commands.Context, commandName: str) -> None:
     return
 
@@ -108,6 +109,8 @@ async def event_message(ctx: commands.Context) -> None:
     else:
         return
 
+=======
+>>>>>>> dev
 async def forceshutdown(ctx: commands.Context) -> None:
     if ctx.message.content.lower() == "!forceshutdown":
         if ctx.author == os.environ['CHANNEL']:
