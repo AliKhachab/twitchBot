@@ -92,40 +92,6 @@ async def grindserver(ctx: commands.Context) -> None:
 #     else:
 #         return
 
-@bot.command()
-async def editcom(ctx: commands.Context, commandName: str) -> None:
-    return
-
-
-@bot.command()
-async def rmcom(ctx: commands.Context, commandName: str) -> None:
-    return
-
-
-@bot.event()
-async def event_message(ctx: commands.Context) -> None:
-    if bot.nick.lower() != ctx.author.name.lower():
-        if ctx.message.content.startswith(bot.get_prefix('!')):
-            pass
-    else:
-        return
-
-
-async def forceshutdown(ctx: commands.Context) -> None:
-    if ctx.message.content.lower() == "!forceshutdown":
-        if ctx.author == os.environ['CHANNEL']:
-            print(True)
-            exit(0)
-        else:
-            print(False)
-
-
-@bot.event()
-async def event_shutdown() -> None:
-    with open(filePath, 'w'):
-        file.write(
-            f"{dynamic_variables['twitter']}\n{dynamic_variables['discord']}\n{dynamic_variables['grindserver']}")
-        print("printed")
 
 
 if __name__ == '__main__':
