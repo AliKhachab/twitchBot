@@ -1,5 +1,9 @@
 # twitchBot
 
+## PLANS FOR FUTURE 
+I'm writing this so I can see this for myself in the future and actually make changes --
+I started this project on the newest version of Python, but all the documentation is for the older versions, and I was still such a coding beginner before that I didn't realize I could just use a Python version manager and write my code in old Python versions. I'm gonna revamp this whole thing at some point and try to make this a fully functional bot for my Twitch chat with a bunch of fun features that someone else could possibly use too. For now though, I have other stuff to do. Written as of 3/22/24. Will try to start in May once I get free time from this semester.
+
 ### What this is for
 
 This is meant to be used for my own personal Twitch stream chat. Others can of course look at the code and copy it or
